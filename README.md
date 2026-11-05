@@ -7,20 +7,40 @@ Write a Python agent that plays football, watch it play, and score it, all on yo
 | `agent.py` | The agent: a rule-based 5 vs 5 player. Edit this. |
 | `match_5v5.py` | The game mode: line-up, opponent strength, match length. Copy it to make your own. |
 
-## Install
+## Get started (5 minutes)
 
-Python 3.12 or newer; macOS, Linux or Windows. No GPU needed.
+You need Python 3.12 or newer and git; macOS, Linux or Windows. No GPU needed.
 
 ```sh
+# 1. Check Python (Windows: py --version)
+python3 --version                   # must say 3.12 or higher
+
+# 2. Get this starter and go into it
+git clone https://github.com/codepraxis-org/football-starter.git
+cd football-starter
+
+# 3. Install the game (a separate environment keeps it apart from your other Python projects)
+python3 -m venv .venv
+source .venv/bin/activate           # Windows: .venv\Scripts\activate
 pip install codepraxis-football
-codepraxis-football doctor          # checks the engine, rendering and video
+
+# 4. Check it works
+codepraxis-football doctor          # every line should say [ok]
+
+# 5. Watch the sample agent play a 5 vs 5 match
+codepraxis-football watch agent.py match_5v5.py
 ```
 
-On a Linux server or minimal Linux install: `sudo apt install libgl1 libegl1`.
+- Run every command from inside the `football-starter` folder: that is where `agent.py` and
+  `match_5v5.py` are. "agent file not found" means you are in another folder.
+- Coming back later: `cd football-starter` and `source .venv/bin/activate` (Windows:
+  `.venv\Scripts\activate`) before the commands below.
+- Linux server or minimal Linux install: `sudo apt install libgl1 libegl1` first.
+- Update the game: `pip install -U codepraxis-football`.
 
 ## Play, watch, score
 
-One command: what to do, the agent, the game mode.
+From inside `football-starter`. One command: what to do, the agent, the game mode.
 
 ```sh
 codepraxis-football play match_5v5.py                          # you play, with the keyboard
