@@ -83,7 +83,10 @@ One `agent.py` plays every mode, so write rules that work in all of them.
 
 The loop: change `agent.py`, `watch` to see what it does, `eval` to measure it.
 
-Start with the knobs at the top of `agent.py`:
+Make the team yours at the top of `agent.py`: `TEAM_NAME`, `SHIRT_COLOR`, `SHORTS_COLOR`
+(e.g. `'red'`, `'#e53935'` or `(229, 57, 53)`). They show in the window, videos and scoreboard.
+
+Then start with the knobs:
 
 | Knob | Default | Effect |
 |---|---|---|

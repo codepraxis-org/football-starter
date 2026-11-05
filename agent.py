@@ -17,6 +17,11 @@ from codepraxis_football import Action
 OBSERVATION = 'raw'  # obs is a dict; README.md lists every field
 PLAYERS = 1          # how many of our players this agent controls
 
+# Your team's look (no effect on play). Colours: '#rrggbb', a name like 'red', or (r, g, b).
+TEAM_NAME = 'CodePraxis FC'
+SHIRT_COLOR = '#1e5fbf'
+SHORTS_COLOR = 'white'
+
 # The knobs worth tuning first.
 SHOOT_FROM_X = 0.72    # shoot once this close to their goal...
 SHOOT_MAX_Y = 0.22     # ...and this central
