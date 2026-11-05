@@ -35,7 +35,8 @@ def agent(obs):                      # called 10 times per second of game time
 
 - `obs` is what your player sees: ball, every player's position and direction, score, game mode.
 - You return one of 19 actions: 8 directions, passes, shot, sprint, dribble, tackle.
-- The sample `agent.py` chases the ball, passes when blocked and shoots near goal. Start from it.
+- The sample `agent.py` is 7 simple rules (chase the ball, pass when blocked, shoot near goal),
+  each explained in the file with how to improve it. Read it first, then start changing it.
 - Name your team and pick colours at the top: `TEAM_NAME`, `SHIRT_COLOR`, `SHORTS_COLOR`.
 
 Every field and action: [docs/agent-reference.md](docs/agent-reference.md).
