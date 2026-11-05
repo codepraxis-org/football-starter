@@ -5,7 +5,9 @@ Write a Python agent that plays football, watch it play, and score it, all on yo
 | File | What it is |
 |---|---|
 | `agent.py` | The agent: a rule-based 5 vs 5 player. Edit this. |
-| `match_5v5.py` | The game mode: line-up, opponent strength, match length. Copy it to make your own. |
+| `match_5v5.py` | A free-play game mode: line-up, opponent strength, match length. Copy it to make your own. |
+| `run_round1.py`, `run_round2.py`, `run_final.py` | The rounds: run them on your agent (below) |
+| `round1/`, `round2/`, `final/` | Every round's game modes, one file each |
 
 ## Get started (5 minutes)
 
@@ -22,7 +24,7 @@ cd football-starter
 # 3. Install the game (a separate environment keeps it apart from your other Python projects)
 python3 -m venv .venv
 source .venv/bin/activate           # Windows: .venv\Scripts\activate
-pip install codepraxis-football
+pip install "codepraxis-football>=0.3.0"
 
 # 4. Check it works
 codepraxis-football doctor          # every line should say [ok]
@@ -57,6 +59,25 @@ player) works in `watch` and `eval`, not in head-to-head `match` / `watch-match`
 
 Keyboard in `play` (click the window first): arrows move, hold `e` sprint, hold `c` dribble,
 `s` short pass, `a` high pass, `w` long pass, `d` shoot, `x` slide tackle, `Esc` quit.
+
+## The rounds
+
+One `agent.py` plays every mode, so write rules that work in all of them.
+
+| Round | Command | Modes | Pass |
+|---|---|---|---|
+| 1: Skills | `python run_round1.py` (~15 s) | Finisher, Dribbler, Chased, Playmaker, Counter (`round1/`) | 4 of 5 |
+| 2: Matches | `python run_round2.py` (~30 s) | 5v5, 5v5 Pro, Defender, 11v11 (`round2/`) | 3 of 4 |
+| Final | `python run_final.py agent.py other.py` | 11 vs 11, agent against agent (`final/`) | win the series |
+
+- Each script runs headless on all your CPU cores, prints progress as it goes, then PASS/FAIL per
+  mode and the verdict. The targets are printed at the start.
+- `--only 2` runs one mode; `--quick` runs a quarter of the episodes (faster, noisier).
+- See a mode: `codepraxis-football watch agent.py round1/dribbler.py`.
+- Final, live: `python run_final.py agent.py other.py --watch` (add `--fps 20` for double speed).
+  No opponent yet? `python run_final.py agent.py agent.py`.
+- These are practice seeds. Judging uses the same modes with seeds you haven't seen.
+- The targets are set above the game's own AI: copying what the built-in players do is not enough.
 
 ## Make it better
 

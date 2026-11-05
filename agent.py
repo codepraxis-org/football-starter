@@ -77,8 +77,8 @@ class Agent:
 
     # An opponent right in front: pass to the teammate furthest up the pitch.
     blocked = any(0 < o[0] - me[0] < PRESSURE and abs(o[1] - me[1]) < PRESSURE for o in they)
-    if blocked:
-      mates = [p for i, p in enumerate(obs['left_team']) if i not in (0, obs['active'])]
+    mates = [p for i, p in enumerate(obs['left_team']) if i not in (0, obs['active'])]
+    if blocked and mates:  # some modes have no teammates to pass to
       best = max(mates, key=lambda p: p[0])
       if best[0] > me[0] - 0.05:
         self.facing = Action.SHORT_PASS
