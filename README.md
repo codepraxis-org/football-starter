@@ -12,7 +12,7 @@ git clone https://github.com/codepraxis-org/football-starter.git
 cd football-starter
 python3 -m venv .venv
 source .venv/bin/activate                 # Windows: .venv\Scripts\activate
-pip install "codepraxis-football>=0.3.0"
+pip install "codepraxis-football>=0.3.1"
 codepraxis-football doctor                # every line should say [ok]
 codepraxis-football watch agent.py match_5v5.py   # the sample agent plays 5 vs 5
 ```
